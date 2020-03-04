@@ -1,18 +1,21 @@
-const express = require("express");
+const express = require('express');
+let  routes = require('./routes/usuarioRoute')
+let cadastroPizza = require('./routes/cadastroPizza')
 let app = express();
-let  routes = require("./routes/usuarioRoute")
 
+app.use("/usuarioRoute", routes);
+app.use("/cardapio", cadastroPizza);
 
 
 app.get("/", (req, res ) => {
     res.send("esta no site")
 } )
 
-app.get("/cardapio", (req, res ) => {
-    res.send("esta no cardapio")
-} )
 
-app.use("/usuarioRoute", routes)
+
+
+
+
 
 
 
@@ -20,6 +23,5 @@ app.use("/usuarioRoute", routes)
 
 
 app.listen(3000 , (req, res )=>{
-    console.log("servidor rodando ");
+    console.log("servidor rodando");
 } );
-
